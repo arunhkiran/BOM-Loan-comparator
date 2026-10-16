@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123a66">
+<title>Home Loan Comparator of Bank of Maharashtra for Postal Department Employees Only</title>
+<style>
+:root{--navy:#123a66;--blue:#2463eb;--teal:#087f8c;--ink:#17263c;--muted:#64748b;--line:#dbe4ef;--bg:#f3f6fb;--white:#fff;--green:#087443;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.45;position:relative;isolation:isolate}
+/* Bank of Maharashtra logo watermark. The logo image is hosted on Wikimedia Commons. */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url('https://upload.wikimedia.org/wikipedia/commons/d/d0/Bank_of_Maharashtra_logo.svg');background-repeat:no-repeat;background-position:center 58%;background-size:min(76vw,680px) auto;opacity:.34}
+body>header,body>main,body>footer{position:relative;z-index:1}
+header{background:linear-gradient(125deg,#102f52,#1f5b91);color:white;padding:22px 18px 28px}
+.wrap{max-width:1100px;margin:auto}.brand-row{display:flex;align-items:center;gap:18px}.brand-logo{display:block;width:min(260px,34vw);max-height:78px;object-fit:contain;flex:0 0 auto;background:#fff;border:1px solid #dbeafe;border-radius:8px;padding:7px 10px;box-shadow:0 3px 12px #031b3450}.brand-copy{min-width:0}.logo-fallback{display:none;align-items:center;gap:10px;color:#124a80;background:#fff;border:1px solid #dbeafe;border-radius:8px;padding:10px 12px;font-weight:750;line-height:1.15;flex:0 0 auto}.fallback-seal{width:42px;height:42px;border:2px solid #1684c7;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#1684c7;font-size:1.15rem;font-weight:850}.eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;opacity:.82;font-weight:700}
+h1{margin:6px 0 8px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.15}.subtitle{margin:0;max-width:680px;color:#e0edff}
+main{max-width:1100px;margin:-14px auto 40px;padding:0 14px}
+.panel{background:rgba(255,255,255,.80);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 5px 18px #1b3b5c0a;backdrop-filter:blur(1.5px)}
+h2{font-size:1.1rem;margin:0 0 14px}h3{font-size:1rem;margin:0 0 10px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+label{display:block;font-size:.86rem;font-weight:650;margin-bottom:6px;color:#34445b}
+input{width:100%;min-height:45px;border:1px solid #cbd5e1;border-radius:9px;padding:10px 11px;font:inherit;color:var(--ink);background:white}
+input:focus{outline:3px solid #2463eb26;border-color:var(--blue)}
+small,.hint{color:var(--muted);font-size:.8rem}
+.offer{background-color:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:12px;padding:15px}.offer.a{border-top:4px solid var(--blue)}.offer.b{border-top:4px solid var(--teal)}
+.offer-title{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:750}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--blue)}.b .dot{background:var(--teal)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+button{border:0;border-radius:10px;padding:12px 16px;font:inherit;font-weight:750;cursor:pointer}
+.primary{background:var(--blue);color:white}.secondary{background:#eaf0f8;color:var(--navy)}
+button:focus-visible{outline:3px solid #2463eb55;outline-offset:2px}
+.results-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.winner{font-size:.83rem;font-weight:750;background:#e5f7ee;color:var(--green);border-radius:999px;padding:6px 10px}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+.metric{padding:14px;border:1px solid var(--line);border-radius:12px;background:rgba(251,253,255,.88);min-width:0}
+.metric .label{font-size:.78rem;color:var(--muted);margin-bottom:5px}.metric .value{font-weight:800;font-size:clamp(1rem,2.4vw,1.35rem);overflow-wrap:anywhere}
+.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.statbox{background:rgba(248,250,252,.88);border-radius:12px;padding:15px}.statbox .big{font-size:1.55rem;font-weight:850;margin:3px 0}
+.good{color:var(--green)}.warning{background:#fff8e8;border:1px solid #f5d79b;padding:12px;border-radius:10px;color:#754b00;font-size:.86rem}
+.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:.86rem}th,td{text-align:right;padding:10px 12px;border-bottom:1px solid var(--line)}th{background:#f4f7fb;color:#334155;font-weight:750}th:first-child,td:first-child{text-align:left}tfoot td{font-weight:800}
+.formula{background:#f5f8fc;padding:12px;border-radius:9px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}
+footer{max-width:1100px;margin:0 auto 30px;padding:0 18px;color:var(--muted);font-size:.8rem}
+@media(max-width:720px){.brand-row{align-items:flex-start;flex-direction:column;gap:12px}.brand-logo{width:min(260px,76vw);max-height:72px}.grid,.compare{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.panel{padding:15px}.fields{gap:10px}}
+@media(max-width:390px){.fields{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap brand-row"><img class="brand-logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Bank_of_Maharashtra_logo.svg" alt="Bank of Maharashtra logo" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='inline-flex'"><div id="logoFallback" class="logo-fallback" aria-label="Bank of Maharashtra"><span class="fallback-seal" aria-hidden="true">ब</span><span>बँक ऑफ महाराष्ट्र<br><strong>Bank of Maharashtra</strong></span></div><div class="brand-copy"><div class="eyebrow">For Postal Department Employees Only</div><h1>Home Loan Comparator of Bank of Maharashtra</h1><p class="subtitle">For Postal Department employees only. Compare your existing home loan with Bank of Maharashtra, estimate monthly EMI and total interest, and view potential savings.</p></div></div></header>
+<main>
+<section class="panel">
+<h2>1. Loan details</h2>
+<div class="fields">
+<div><label for="amount">Loan amount (₹)</label><input id="amount" type="number" min="1" step="10000" value="5000000" inputmode="decimal"></div>
+<div><label for="tenure">Tenure (years)</label><input id="tenure" type="number" min="1" max="40" step="1" value="20" inputmode="numeric"></div>
+</div>
+<div class="hint" style="margin-top:8px">Use the same loan amount and tenure for both offers.</div>
+</section>
+<section class="panel">
+<h2>2. Enter the two offers</h2>
+<div class="grid">
+<div class="offer a"><div class="offer-title"><span class="dot"></span>Existing Loan</div>
+<div style="margin-bottom:12px"><label for="rateA">Annual interest rate (%)</label><input id="rateA" type="number" min="0" max="50" step="0.01" value="8.50" inputmode="decimal"></div>
+
+</div>
+<div class="offer b"><div class="offer-title"><span class="dot"></span>Bank of Maharashtra</div>
+<div style="margin-bottom:12px"><label for="rateB">Annual interest rate (%)</label><input id="rateB" type="number" min="0" max="50" step="0.01" value="7.25" inputmode="decimal" readonly aria-readonly="true" title="Fixed at 7.25% p.a."></div>
+
+</div>
+</div>
+<div class="actions"><button class="primary" id="calculate">Compare offers</button><button class="secondary" id="reset" type="button">Reset sample values</button></div>
+<div id="error" role="alert" style="color:var(--red);margin-top:10px"></div>
+</section>
+<section class="panel" id="results" aria-live="polite">
+<div class="results-head"><h2 style="margin:0">3. Comparison results</h2><span id="winner" class="winner">Lower estimated cost: Bank of Maharashtra</span></div>
+<div class="metrics">
+<div class="metric"><div class="label">Monthly EMI savings with Bank of Maharashtra</div><div class="value" id="emiDiff">—</div></div>
+<div class="metric"><div class="label">Total EMI savings over tenure (Bank of Maharashtra vs Existing)</div><div class="value" id="interestSaved">—</div></div>
+<div class="metric"><div class="label">Difference in total interest</div><div class="value" id="costSaved">—</div></div>
+<div class="metric"><div class="label">Tenure</div><div class="value" id="tenureOut">—</div></div>
+</div>
+<div class="compare" id="offerResults"></div>
+<p class="hint">Comparison excludes fees and other charges. Principal is the same in both offers and is excluded from the savings comparison.</p>
+</section>
+
+<section class="panel">
+<h2>4. Yearly repayment schedule</h2>
+<p class="hint">One row per year for each loan. Annual EMI paid is the total of installments actually paid during that year. Amounts are rounded to the nearest rupee; the final year may contain fewer than 12 installments.</p>
+<div class="actions" style="margin:0 0 12px"><button class="secondary" id="downloadCsv" type="button">Download yearly schedule as CSV</button></div>
+<div class="table-wrap"><table id="schedule"><thead><tr><th>Year</th><th>Loan</th><th>Installments</th><th>Opening balance</th><th>Total EMI paid</th><th>Principal repaid</th><th>Interest paid</th><th>Closing balance</th></tr></thead><tbody></tbody></table></div>
+</section>
+<section class="panel">
+<h2>How EMI is calculated</h2>
+<div class="formula">EMI = P × r × (1 + r)ⁿ ÷ [(1 + r)ⁿ − 1]</div>
+<p class="hint">P = loan principal; r = monthly interest rate (annual rate ÷ 12 ÷ 100); n = total number of monthly installments. At 0% interest, EMI is principal divided by the number of installments.</p>
+<div class="warning">Estimate only: calculations assume a constant interest rate and regular monthly payments for the full tenure. Floating-rate revisions, insurance, legal charges, taxes, and other fees are excluded. Confirm the final repayment schedule and charges with the lender.</div>
+</section>
+</main>
+<footer>Home Loan Rate Comparator · For planning and comparison only; not a loan sanction or financial advice.</footer>
+<script>
+const $ = id => document.getElementById(id);
+const inr = n => new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(n);
+const num = id => Number($(id).value);
+function emi(P, annual, n){const r=annual/1200;if(r===0)return P/n;const x=Math.pow(1+r,n);return P*r*x/(x-1)}
+function schedule(P, annual, n, payment){
+ let bal=P, rows=[], monthly=[], totalInterest=0, totalPrincipal=0;
+ for(let m=1;m<=n;m++){
+  const opening=bal;
+  const interest=annual===0?0:bal*annual/1200;
+  let principal=payment-interest;
+  if(m===n||principal>bal)principal=bal;
+  const actualPayment=principal+interest;
+  bal=Math.max(0,bal-principal);
+  totalInterest+=interest;totalPrincipal+=principal;
+  monthly.push({month:m,opening,emi:actualPayment,principal,interest,closing:bal,cumulativeInterest:totalInterest});
+  const year=Math.ceil(m/12);let row=rows[year-1];
+  if(!row){row={year,installments:0,opening,emi:0,principal:0,interest:0,closing:0};rows.push(row)}
+  row.installments+=1;row.emi+=actualPayment;row.principal+=principal;row.interest+=interest;row.closing=bal;
+ }
+ return {rows,monthly,totalInterest,totalPrincipal,totalPaid:monthly.reduce((sum,r)=>sum+r.emi,0)};
+}
+function calculate(){
+ $('error').textContent='';
+ const P=num('amount'), years=num('tenure'), a=num('rateA'), b=num('rateB');
+ if(![P,years,a,b].every(Number.isFinite)||P<=0||years<=0||years>40||a<0||b<0||a>50||b>50){$('error').textContent='Please enter a valid loan amount and tenure, and interest rates between 0% and 50%.';return}
+ const n=Math.round(years*12), ea=emi(P,a,n), eb=emi(P,b,n), sa=schedule(P,a,n,ea), sb=schedule(P,b,n,eb);
+ const totalA=sa.totalPaid, totalB=sb.totalPaid, costA=sa.totalInterest, costB=sb.totalInterest;
+ const cheaper=costA<costB?'A':costB<costA?'B':'Equal';
+ $('winner').textContent=cheaper==='Equal'?'Estimated costs are equal':`Lower estimated cost: ${cheaper==='A'?'Existing Loan':'Bank of Maharashtra'}`;
+ $('emiDiff').textContent=ea>eb?inr(ea-eb)+'/mo saved':ea<eb?inr(eb-ea)+'/mo extra':'₹0/mo';
+ $('interestSaved').textContent=totalA>totalB?inr(totalA-totalB)+' saved':totalB>totalA?inr(totalB-totalA)+' extra':'₹0';
+ $('costSaved').textContent=inr(Math.abs(costA-costB));
+ $('tenureOut').textContent=`${n} months`;
+ const card=(name,rate,e,s,cost,win)=>`<div class="statbox"><h3>${name==='A'?'Existing Loan':'Bank of Maharashtra'} ${win?'<span class="good">· Lower cost</span>':''}</h3><div class="hint">Annual rate: ${rate.toFixed(2)}%</div><div class="big">${inr(e)}</div><div class="hint">Monthly EMI</div><hr style="border:0;border-top:1px solid var(--line);margin:12px 0"><div style="display:flex;justify-content:space-between;gap:8px;margin:7px 0"><span>Total interest</span><strong>${inr(s.totalInterest)}</strong></div><div style="display:flex;justify-content:space-between;gap:8px;margin:7px 0"><span>Total repayment</span><strong>${inr(s.totalPaid)}</strong></div></div>`;
+ $('offerResults').innerHTML=card('A',a,ea,sa,costA,cheaper==='A')+card('B',b,eb,sb,costB,cheaper==='B');
+ const body=$('schedule').querySelector('tbody');body.innerHTML='';
+ [ {name:'A',data:sa},{name:'B',data:sb} ].forEach(o=>o.data.rows.forEach(r=>{const tr=document.createElement('tr');[r.year,(o.name==='A'?'Existing Loan':'Bank of Maharashtra'),r.installments,inr(r.opening),inr(r.emi),inr(r.principal),inr(r.interest),inr(r.closing)].forEach(v=>{const td=document.createElement('td');td.textContent=String(v);tr.appendChild(td)});body.appendChild(tr)}));
+ window.loanScheduleData = {A:sa.rows,B:sb.rows};
+}
+$('downloadCsv').addEventListener('click',()=>{const d=window.loanScheduleData;if(!d)return;let lines=['Year,Loan,Installments,Opening Balance,Total EMI Paid,Principal Repaid,Interest Paid,Closing Balance'];for(const name of ['A','B'])for(const r of d[name])lines.push([r.year,name==='A'?'Existing Loan':'Bank of Maharashtra',r.installments,r.opening.toFixed(2),r.emi.toFixed(2),r.principal.toFixed(2),r.interest.toFixed(2),r.closing.toFixed(2)].join(','));const blob=new Blob([lines.join('\n')],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='home-loan-yearly-repayment-schedule.csv';a.click();URL.revokeObjectURL(url);});
+$('calculate').addEventListener('click',calculate);
+$('reset').addEventListener('click',()=>{ $('amount').value=5000000;$('tenure').value=20;$('rateA').value=8.50;$('rateB').value=7.25;calculate()});
+['amount','tenure','rateA','rateB'].forEach(id=>$(id).addEventListener('change',calculate));
+calculate();
+</script>
+</body>
+</html>
